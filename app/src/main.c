@@ -32,20 +32,29 @@ int main(void)
     gpio_pin_configure_dt(&led3, GPIO_OUTPUT_INACTIVE);
 
 
+    
     while (1) {
-        // Toggle all four LEDs
-        gpio_pin_toggle_dt(&led0);
-        gpio_pin_toggle_dt(&led1);
-        gpio_pin_toggle_dt(&led2);
-        gpio_pin_toggle_dt(&led3);
-
+        // Turn on LED0
+        gpio_pin_set_dt(&led0, 1);
         k_msleep(250);
+        gpio_pin_set_dt(&led0, 0);
 
-        // Toggle LED0 a second time
-        gpio_pin_toggle_dt(&led0);
-
+        // Turn on LED1
+        gpio_pin_set_dt(&led1, 1);
         k_msleep(250);
+        gpio_pin_set_dt(&led1, 0);
+
+        // Turn on LED2
+        gpio_pin_set_dt(&led2, 1);
+        k_msleep(250);
+        gpio_pin_set_dt(&led2, 0);
+
+        // Turn on LED3
+        gpio_pin_set_dt(&led3, 1);
+        k_msleep(250);
+        gpio_pin_set_dt(&led3, 0);
     }
+
 
 
     return 0;
